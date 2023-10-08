@@ -42,8 +42,8 @@ p{
 }
 @font-face{
     font-family: 'sf_pro_displaymedium';
-    src: url('sfprodisplay-medium.woff2') format('woff2'),
-         url('sfprodisplay-medium.woff') format('woff');
+    src: url('https://ponttablazat.github.io/font/SFProDisplay-Medium.woff2') format('woff2'),
+         url('https://ponttablazat.github.io/font/SFProDisplay-Medium.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
