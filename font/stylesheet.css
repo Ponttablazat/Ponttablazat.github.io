@@ -53,6 +53,9 @@ p{
         opacity: 0;
         transform: translate(0px, 25px);
     }
+    80%{
+        opacity: 70;
+    }
     100%{
         opacity: 100;
         transform: translate(0px, 0px);
