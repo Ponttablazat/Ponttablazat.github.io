@@ -11,7 +11,7 @@ a{
     text-decoration: none;
 }
 .fejlec{
-    height: 87.5px;
+    height: 80px;
     background: #24292B;
 }
 .fejlec > table{
@@ -45,10 +45,10 @@ p{
     color: #8a8e8e;
 }
 .szoveg > * > p{
-    animation: fadeInAnimation ease-out 1.5s;
+    animation: fadeInAnimation ease-out 1.4s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.625s;
 }
 .bal{
     width: 50%;
@@ -59,6 +59,12 @@ p{
     width: 50%;
     float: right;
     text-align: center;
+}
+.szoveg > .bal > p:hover{
+    cursor: pointer;
+}
+.szoveg > .bal > p{
+    text-decoration: underline;
 }
 @font-face{
     font-family: 'sf_pro_displaymedium';
