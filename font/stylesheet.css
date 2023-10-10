@@ -25,7 +25,7 @@ a{
     font-size: 26px;
 }
 .ponttablazat{
-    margin-top: 50px;
+    margin-top: 30px;
     font-size: 80px;
 }
 .ponttablazat > .cim > p{
@@ -41,30 +41,28 @@ p{
     opacity: 0;
 }
 .szoveg{
-    font-size: 30px;
+    font-size: 37.5px;
     color: #8a8e8e;
+    text-align: center;
 }
-.szoveg > * > p{
-    animation: fadeInAnimation ease-out 1.4s;
+.szoveg > p{
+    animation: fadeInAnimation ease-out 1.3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-delay: 0.625s;
 }
-.bal{
-    width: 50%;
-    float: left;
-    text-align: center;
+.szoveg > .kis_szoveg{
+    margin-bottom: 60px;
 }
-.jobb{
-    width: 50%;
-    float: right;
-    text-align: center;
+.szoveg > .kis_szoveg > p{
+    font-size: 20px;
+    animation: fadeInAnimation ease-out 1.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 0.625s;
 }
-.szoveg > .bal > p:hover{
+.szoveg > a:hover{
     cursor: pointer;
-}
-.szoveg > .bal > p{
-    text-decoration: underline;
 }
 @font-face{
     font-family: 'sf_pro_displaymedium';
