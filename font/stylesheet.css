@@ -10,20 +10,6 @@ a{
     color: #d3d8d9;
     text-decoration: none;
 }
-.fejlec{
-    height: 80px;
-    background: #24292B;
-}
-.fejlec > table{
-    width: 100%;
-    height: 100%;
-}
-.fejlec > table > tbody > tr > td{
-    text-align: center;
-    width: 33%;
-    height: 100%;
-    font-size: 26px;
-}
 .ponttablazat{
     margin-top: 30px;
     font-size: 80px;
@@ -61,8 +47,49 @@ p{
     animation-fill-mode: forwards;
     animation-delay: 0.625s;
 }
+.szoveg > .kis_szoveg > * > p, img{
+    font-size: 20px;
+    animation: fadeInAnimation ease-out 1.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 0.625s;
+}
+.szoveg > .kis_szoveg > * > * > p{
+    font-size: 20px;
+    animation: fadeInAnimation ease-out 1.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 0.625s;
+}
 .szoveg > a:hover{
     cursor: pointer;
+}
+.bal{
+    width: 50%;
+    float: left;
+}
+.jobb{
+    width: 50%;
+    float: right;
+}
+img{
+    width: 70%;
+    height: 70%;
+    opacity: 0;
+    float: left;
+}
+img[src*="1.png"]{
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+img[src*="2.png"]{
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.kep{
+    width: 30%;
+    height: 30%;
+    transform: translate(30%, 0px);
 }
 @font-face{
     font-family: 'sf_pro_displaymedium';
