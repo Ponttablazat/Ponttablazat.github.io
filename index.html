@@ -1,39 +1,53 @@
 <!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <title>Bejelentkezés</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-</head>
-<body>
-    <div class="hatter">
-        <div class="fejlec">
-            <p class="tartalom">Matek Ponttáblázat</p>
-            <p class="inverz_tartalom">Web</p>
-        </div>
-        <div class="doboz">
-            <p class="nagy">Bejelentkezés</p>
-            <div class="form__group field">
-                <input type="email" class="form__field" placeholder="Email" name="email" id="email" required />
-                <label for="email" class="form__label">Email</label>
-            </div>
-            <div class="form__group field">
-                <input type="password" class="form__field" placeholder="Jelszó" name="jelszo" id="jelszo" required />
-                <label for="jelszo" class="form__label">Jelszó</label>
-            </div>
-            <label class="checkbox_doboz">
-                Jelszó mutatása
-                <input type="checkbox" id="jelszo_cb" onclick="jelszoMutatasa()" />
-                <span class="checkbox"></span>
-            </label>
-            <label class="checkbox_doboz">
-                Bejelentkezve maradok
-                <input type="checkbox" id="bejelentkezes_cb" />
-                <span class="checkbox"></span>
-            </label>
-            <button type="button" id="bejelentkezes_b">Bejelentkezés</button>
-        </div>
-    </div>
-    <script src="js/index.js"></script>
-</body>
+<html>
+	<head>
+		<title>Bejelentkezés</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="module" src="js/firebase.js" defer></script>
+		<script src="js/index.js" defer></script>
+	</head>
+	<body>
+		<div class="hatter">
+			<div class="fejlec">
+				<p class="tartalom">Matek Ponttáblázat</p>
+				<p class="inverz_tartalom">Web</p>
+			</div>
+			<div class="doboz">
+				<p class="nagy">Bejelentkezés</p>
+				<div class="form__group field">
+					<input
+						type="email"
+						class="form__field"
+						placeholder="Email"
+						name="email"
+						id="email"
+						required
+					/>
+					<label for="email" class="form__label">Email</label>
+				</div>
+				<div class="form__group field">
+					<input
+						type="password"
+						class="form__field"
+						placeholder="Jelszó"
+						name="jelszo"
+						id="jelszo"
+						required
+					/>
+					<label for="jelszo" class="form__label">Jelszó</label>
+				</div>
+				<label class="checkbox_doboz">
+					Jelszó mutatása
+					<input type="checkbox" id="jelszo_cb" onclick="jelszoMutatasa()" />
+					<span class="checkbox"></span>
+				</label>
+				<label class="checkbox_doboz">
+					Bejelentkezve maradok
+					<input type="checkbox" id="bejelentkezes_cb" onclick="" />
+					<span class="checkbox"></span>
+				</label>
+				<button type="button" id="bejelentkezes_b">Bejelentkezés</button>
+			</div>
+		</div>
+	</body>
 </html>
