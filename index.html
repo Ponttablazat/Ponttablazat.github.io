@@ -1,43 +1,39 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Főoldal</title>
-        <meta charset="UTF-8">
-        <link href="font/stylesheet.css" rel="stylesheet">
-        <script src="index.js"></script>
-    </head>
-    <body>
-        <div class="ponttablazat">
-            <div class="cim">
-                <p>Matek</p>
-                <p>Ponttáblázat</p>
-            </div>
-            <div class="szoveg">
-                <p><a style="text-decoration: underline; color: #8a8e8e;" href="https://ponttablazat.github.io/MatekPonttablazatInstaller.exe">Letöltés</a></p>
-                <div class="kis_szoveg">
-                    <p>A letöltés elindításához kattints a 'Letöltés' gombra.</p>
-                    <p>Miután befejeződött a letöltés, futtasd a telepítő programot.</p>
-                </div>
-                <p>Telepítés</p>
-                <div class="kis_szoveg">
-                    <div class="jobb">
-                        <br/>
-                        <p>A telepítő program végigvisz a telepítés lépésein.</p>
-                        <p>Ha a fájlokat áthelyeznéd, olyan helyre rakjad ahol az elérési út <br/>nem tartalmaz space-t vagy ékezetes karaktert!</p>
-                    </div>
-                    <div class="bal">
-                        <div class="kep">
-                            <img src="1.png">
-                            <img src="2.png">
-                        </div>
-                        <div style="float:unset; margin-inline: 15px;">
-                            <p>A telepítő futtatásakor meg fog jelleni a<br/>Windows SmartScreen figyelmeztetés.</p>
-                            <p>Ekkor rá kell kattintani a 'További információ'<br/>gombra és utána a 'Futtatás midenképpen'-re.</p>
-                            <p>(Ez azért van, mert a Microsoft Defender még<br/>nem ismeri a fájlt, mivel még nem<br/>futtaták le többszáz különböző eszközön.)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Bejelentkezés</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+    <div class="hatter">
+        <div class="fejlec">
+            <p class="tartalom">Matek Ponttáblázat</p>
+            <p class="inverz_tartalom">Web</p>
         </div>
-    </body>
+        <div class="doboz">
+            <p class="nagy">Bejelentkezés</p>
+            <div class="form__group field">
+                <input type="email" class="form__field" placeholder="Email" name="email" id="email" required />
+                <label for="email" class="form__label">Email</label>
+            </div>
+            <div class="form__group field">
+                <input type="password" class="form__field" placeholder="Jelszó" name="jelszo" id="jelszo" required />
+                <label for="jelszo" class="form__label">Jelszó</label>
+            </div>
+            <label class="checkbox_doboz">
+                Jelszó mutatása
+                <input type="checkbox" id="jelszo_cb" onclick="jelszoMutatasa()" />
+                <span class="checkbox"></span>
+            </label>
+            <label class="checkbox_doboz">
+                Bejelentkezve maradok
+                <input type="checkbox" id="bejelentkezes_cb" />
+                <span class="checkbox"></span>
+            </label>
+            <button type="button" id="bejelentkezes_b">Bejelentkezés</button>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
 </html>
