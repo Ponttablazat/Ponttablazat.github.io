@@ -20,10 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		var bejelentkezes_b = document.getElementById("bejelentkezes_b");
 
 		if (email && jelszo) {
+			bejelentkezes_b.disabled = false;
 			bejelentkezes_b.style.backgroundColor = "white";
 			bejelentkezes_b.style.color = "black";
 			bejelentkezes_b.style.cursor = "pointer";
 		} else {
+			bejelentkezes_b.disabled = true;
 			bejelentkezes_b.style.backgroundColor = "transparent";
 			bejelentkezes_b.style.color = "white";
 			bejelentkezes_b.style.cursor = "default";
@@ -85,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	loginButton.addEventListener("click", function () {
 		var email = document.getElementById("email").value;
 		var jelszo = document.getElementById("jelszo").value;
+		var warningLoginText = document.getElementById("warningLoginText");
 
 		import("./firebase.js")
 			.then(({ signInWithEmailAndPassword, auth }) => {
@@ -106,8 +109,22 @@ document.addEventListener("DOMContentLoaded", function () {
 					})
 					.catch((error) => {
 						const errorCode = error.code;
-						const errorMessage = error.message;
-						console.error("Bejelentkezési hiba:", errorCode, errorMessage);
+						let message = "Sikertelen bejelentkezés!";
+
+						switch (errorCode) {
+							case "auth/wrong-password":
+								message = "Téves Jelszó!";
+								break;
+							case "auth/invalid-email":
+								message = "Érvénytelen Email!";
+								break;
+							case "auth/user-not-found":
+								message = "Nincs ilyen fiók!";
+								break;
+						}
+
+						warningLoginText.textContent = message;
+						warningLoginText.classList.add("show");
 					});
 			})
 			.catch((error) => {

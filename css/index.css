@@ -177,23 +177,21 @@
 	width: 20px;
 	background-image: url(../img/no.png);
 	background-size: contain;
+	transition: background-image 0.3s ease-in-out;
 }
 
-.checkbox::before {
+.checkbox_doboz input:checked ~ .checkbox {
+	background-image: url(../img/yes.png);
+}
+
+.checkbox:after {
 	content: "";
 	position: absolute;
-	top: 0;
-	left: 0;
-	height: 20px;
-	width: 20px;
-	background-image: url(../img/yes.png);
-	background-size: contain;
-	opacity: 0;
-	transition: opacity 0.125s ease-in-out;
+	display: none;
 }
 
-.checkbox_doboz input:checked ~ .checkbox::before {
-	opacity: 1;
+.checkbox_doboz input:checked ~ .checkbox:after {
+	display: block;
 }
 
 .cb_label {
@@ -219,4 +217,19 @@ button {
 	margin-top: 50px;
 	cursor: pointer;
 	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.warning {
+	height: 1.5rem;
+	color: rgb(255, 42, 42);
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.05s linear;
+	margin-top: 25px;
+	font-size: 1.25rem;
+}
+
+.warning.show {
+	visibility: visible;
+	opacity: 1;
 }
