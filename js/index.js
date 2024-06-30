@@ -81,38 +81,37 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 	}
 
-	document
-		.getElementById("bejelentkezes_b")
-		.addEventListener("click", function () {
-			var email = document.getElementById("email").value;
-			var jelszo = document.getElementById("jelszo").value;
+	var loginButton = document.getElementById("bejelentkezes_b");
+	loginButton.addEventListener("click", function () {
+		var email = document.getElementById("email").value;
+		var jelszo = document.getElementById("jelszo").value;
 
-			import("./firebase.js")
-				.then(({ signInWithEmailAndPassword, auth }) => {
-					signInWithEmailAndPassword(auth, email, jelszo)
-						.then((userCredential) => {
-							const user = userCredential.user;
-							console.log("Bejelentkezés sikeres:", user);
+		import("./firebase.js")
+			.then(({ signInWithEmailAndPassword, auth }) => {
+				signInWithEmailAndPassword(auth, email, jelszo)
+					.then((userCredential) => {
+						const user = userCredential.user;
+						console.log("Bejelentkezés sikeres:", user);
 
-							if (document.getElementById("bejelentkezes_cb").checked) {
-								localStorage.setItem("rememberedEmail", email);
-								localStorage.setItem("rememberedPassword", jelszo);
-							} else {
-								localStorage.removeItem("rememberedEmail");
-								localStorage.removeItem("rememberedPassword");
-							}
+						if (document.getElementById("bejelentkezes_cb").checked) {
+							localStorage.setItem("rememberedEmail", email);
+							localStorage.setItem("rememberedPassword", jelszo);
+						} else {
+							localStorage.removeItem("rememberedEmail");
+							localStorage.removeItem("rememberedPassword");
+						}
 
-							// Ide navigálhatod a felhasználót a sikeres bejelentkezés után
-							// window.location.href = '/dashboard.html'; // Példa
-						})
-						.catch((error) => {
-							const errorCode = error.code;
-							const errorMessage = error.message;
-							console.error("Bejelentkezési hiba:", errorCode, errorMessage);
-						});
-				})
-				.catch((error) => {
-					console.error("Hiba az Firebase modul betöltésekor:", error);
-				});
-		});
+						// Ide navigálhatod a felhasználót a sikeres bejelentkezés után
+						// window.location.href = '/dashboard.html'; // Példa
+					})
+					.catch((error) => {
+						const errorCode = error.code;
+						const errorMessage = error.message;
+						console.error("Bejelentkezési hiba:", errorCode, errorMessage);
+					});
+			})
+			.catch((error) => {
+				console.error("Hiba az Firebase modul betöltésekor:", error);
+			});
+	});
 });
