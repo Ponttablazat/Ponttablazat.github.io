@@ -189,11 +189,11 @@
 	background-image: url(../img/yes.png);
 	background-size: contain;
 	opacity: 0;
-	transition: opacity 0.15s ease-in-out; /* Átmenet az átlátszóságra */
+	transition: opacity 0.15s ease-in-out;
 }
 
 .checkbox_doboz input:checked ~ .checkbox::before {
-	opacity: 1; /* Átlátszóság növelése */
+	opacity: 1;
 }
 
 .cb_label {
@@ -218,15 +218,15 @@ button {
 	font-weight: 250;
 	margin-top: 50px;
 	cursor: pointer;
-	transition: background-color 0.3s ease, color 0.3s ease; /* Átmenet a háttérszín és szövegszín változására */
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .warning {
-    height: 1.5rem; /* Előre fenntartott hely a hibaüzenetnek */
+    height: 1.5rem;
     color: red;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.1s linear; /* Átmenet a láthatóság és átlátszóság változására */
+    transition: visibility 0s, opacity 0.1s linear;
     margin-top: 20px;
 }
 
@@ -234,4 +234,3 @@ button {
     visibility: visible;
     opacity: 1;
 }
-
