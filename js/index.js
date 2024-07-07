@@ -1,4 +1,25 @@
+function preloadImages(array) {
+	if (!preloadImages.list) {
+		preloadImages.list = [];
+	}
+	var list = preloadImages.list;
+	for (var i = 0; i < array.length; i++) {
+		var img = new Image();
+		img.onload = function () {
+			var index = list.indexOf(this);
+			if (index !== -1) {
+				list.splice(index, 1);
+			}
+		};
+		list.push(img);
+		img.src = array[i];
+	}
+}
+preloadImages(["Favicon.png", "no.png"]);
+
 document.addEventListener("DOMContentLoaded", function () {
+	document.getElementById("jelszo_cb").checked = false;
+	document.getElementById("bejelentkezes_cb").checked = false;
 	var yesKep = new Image();
 	yesKep.src = "../img/yes.png";
 
@@ -67,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					.then((userCredential) => {
 						const user = userCredential.user;
 						console.log("Automatikus bejelentkezés sikeres:", user);
+						elemekKikapcsolása();
 					})
 					.catch((error) => {
 						const errorCode = error.code;
@@ -81,6 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			.catch((error) => {
 				console.error("Hiba az Firebase modul betöltésekor:", error);
 			});
+	} else {
+		document.getElementById("doboz").style.animation =
+			"fade-in 0.5s ease-in-out";
+		document.getElementById("doboz").style.opacity = 1;
 	}
 
 	var loginButton = document.getElementById("bejelentkezes_b");
@@ -103,9 +129,10 @@ document.addEventListener("DOMContentLoaded", function () {
 							localStorage.removeItem("rememberedEmail");
 							localStorage.removeItem("rememberedPassword");
 						}
-
-						// Ide navigálhatod a felhasználót a sikeres bejelentkezés után
-						// window.location.href = '/dashboard.html'; // Példa
+						document.getElementById("doboz").style.animation =
+							"fade-out 0.5s ease-in-out";
+						document.getElementById("doboz").style.opacity = 0;
+						elemekKikapcsolása();
 					})
 					.catch((error) => {
 						const errorCode = error.code;
@@ -131,4 +158,14 @@ document.addEventListener("DOMContentLoaded", function () {
 				console.error("Hiba az Firebase modul betöltésekor:", error);
 			});
 	});
+
+	function elemekKikapcsolása() {
+		var elements = document.querySelectorAll(
+			"#doboz input, #doboz button, #doboz label, #doboz p"
+		);
+		elements.forEach((element) => {
+			element.disabled = true;
+			element.classList.add("disabled");
+		});
+	}
 });

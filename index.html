@@ -3,16 +3,18 @@
 	<head>
 		<title>Bejelentkezés</title>
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="icon" type="image/x-icon" href="img/Favicon.ico" />
 		<script type="module" src="js/firebase.js" defer></script>
 		<script src="js/index.js" defer></script>
 	</head>
 	<body>
 		<div class="hatter">
 			<div class="fejlec">
+				<img class="ikon" src="img/Favicon.png">
 				<p class="tartalom">Matek Ponttáblázat</p>
 				<p class="inverz_tartalom">Web</p>
 			</div>
-			<div class="doboz">
+			<div class="doboz" id="doboz">
 				<p class="nagy">Bejelentkezés</p>
 				<div class="form__group field">
 					<input
@@ -22,6 +24,7 @@
 						name="email"
 						id="email"
 						required
+						autocomplete="off"
 					/>
 					<label for="email" class="form__label">Email</label>
 				</div>
@@ -33,6 +36,7 @@
 						name="jelszo"
 						id="jelszo"
 						required
+						autocomplete="off"
 					/>
 					<label for="jelszo" class="form__label">Jelszó</label>
 				</div>
