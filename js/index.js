@@ -15,7 +15,7 @@ function preloadImages(array) {
 		img.src = array[i];
 	}
 }
-preloadImages(["Favicon.png", "no.png"]);
+preloadImages(["img/Favicon.png", "img/no.png"]);
 
 document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById("jelszo_cb").checked = false;
