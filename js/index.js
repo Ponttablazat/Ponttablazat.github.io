@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		);
 		elements.forEach((element) => {
 			element.disabled = true;
-			element.classList.add("disabled");
+			element.classList.add("kikapcsolt");
 		});
 	}
 });
