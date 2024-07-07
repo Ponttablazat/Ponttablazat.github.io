@@ -1,22 +1,3 @@
-function preloadImages(array) {
-	if (!preloadImages.list) {
-		preloadImages.list = [];
-	}
-	var list = preloadImages.list;
-	for (var i = 0; i < array.length; i++) {
-		var img = new Image();
-		img.onload = function () {
-			var index = list.indexOf(this);
-			if (index !== -1) {
-				list.splice(index, 1);
-			}
-		};
-		list.push(img);
-		img.src = array[i];
-	}
-}
-preloadImages(["img/Favicon.png", "img/no.png"]);
-
 document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById("jelszo_cb").checked = false;
 	document.getElementById("bejelentkezes_cb").checked = false;
