@@ -3,7 +3,10 @@ const nextConfig = {
 	output: "export",
 	basePath: '',
 	trailingSlash: true,
-	assetPrefix: 'https://github.com/Ponttablazat/Ponttablazat.github.io/tree/gh-pages/',
+	assetPrefix: '',
+	publicRuntimeConfig: {
+		staticFolder: '/_next/static/',
+	  },
 };
 
 export default nextConfig;
