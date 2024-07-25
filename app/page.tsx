@@ -18,6 +18,5 @@ export default function Home() {
 		});
 		return () => unsubscribe();
 	}, [router]);
-
 	return <main className="bg-background"></main>;
 }
