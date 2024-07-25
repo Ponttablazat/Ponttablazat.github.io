@@ -33,7 +33,7 @@ jobs:
           echo "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}" >> .env.local
 
       - name: Build project
-        run: npm run build && npm run export
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         run: npm run deploy
