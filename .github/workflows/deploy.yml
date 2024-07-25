@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - nextjs
+      - main
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: '18.17.0'
 
       - name: Install dependencies
         run: npm install
@@ -32,8 +32,8 @@ jobs:
           echo "NEXT_PUBLIC_FIREBASE_PROJECT_ID=${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}" >> .env.local
           echo "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}" >> .env.local
 
-      - name: Build and export project
-        run: npm run predeploy
+      - name: Build project
+        run: npm run build && npm run export
 
       - name: Deploy to GitHub Pages
         run: npm run deploy
