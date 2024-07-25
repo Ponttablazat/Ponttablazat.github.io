@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"predeploy": "npm run build",
-		"deploy": "gh -d out"
+		"deploy": "gh-pages -d out"
 	},
 	"dependencies": {
 		"@radix-ui/react-checkbox": "^1.1.1",
