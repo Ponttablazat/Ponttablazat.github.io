@@ -44,6 +44,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
-  call-deploy:
-    needs: build
-    uses: ./.github/workflows/nojekyll.yml
+      - name: nojekyll
+        run: |
+          git add .nojekyll
+          git commit -m 'Add .nojekyll file'
+          git push origin gh-pages
+
+      - name: Deploy to GitHub Pages again
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./
