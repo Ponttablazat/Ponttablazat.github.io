@@ -49,7 +49,7 @@ jobs:
           echo > .nojekyll
           git add .nojekyll
           git commit -m 'Add .nojekyll file'
-          git push origin gh-pages
+          git push origin default
 
       - name: Deploy to GitHub Pages again
         uses: peaceiris/actions-gh-pages@v4
