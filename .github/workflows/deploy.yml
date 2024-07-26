@@ -35,9 +35,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Ensure build output directory exists and add .nojekyll file
-        run: touch out/.nojekyll
-
       - name: Configure Git
         run: |
           git config --global user.name "Ponttablazat"
