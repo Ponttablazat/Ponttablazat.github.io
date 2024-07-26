@@ -35,8 +35,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Add .nojekyll file to the build output
-        run: touch out/.nojekyll
+      - name: Create .nojekyll file
+        run: echo "" > ./out/.nojekyll
 
       - name: Configure Git
         run: |
