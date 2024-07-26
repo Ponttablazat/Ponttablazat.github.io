@@ -18,9 +18,11 @@ jobs:
         run: |
           git config --global user.name 'Ponttablazat'
           git config --global user.email 'tvincedc@gmail.com'
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}.git
           git add .nojekyll
           git commit -m 'Add .nojekyll file'
-          git push origin gh-pages
+          git push origin ${{ github.repository }}
+          echo ${{ github.repository }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
