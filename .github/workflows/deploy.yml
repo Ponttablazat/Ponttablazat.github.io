@@ -43,17 +43,3 @@ jobs:
           npm run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
-
-      - name: nojekyll
-        run: |
-          echo > .nojekyll
-          git add .nojekyll
-          git commit -m 'Add .nojekyll file'
-          git push origin default
-
-      - name: Deploy to GitHub Pages again
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./
