@@ -46,6 +46,7 @@ jobs:
 
       - name: nojekyll
         run: |
+          echo > .nojekyll
           git add .nojekyll
           git commit -m 'Add .nojekyll file'
           git push origin gh-pages
