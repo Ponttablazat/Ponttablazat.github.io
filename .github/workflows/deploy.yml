@@ -35,19 +35,26 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Add .nojekyll file to the build output
-        run: |
-          touch ./out/.nojekyll
-          ls out
+      - name: Ensure build output directory exists and add .nojekyll file
+        run: touch out/.nojekyll
 
       - name: Configure Git
         run: |
           git config --global user.name "Ponttablazat"
           git config --global user.email "tvince0@gmail.com"
 
+      - name: Commit .nojekyll file
+        run: |
+          cd out
+          git init
+          git remote add origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}.git
+          git checkout -b gh-pages
+          git add .nojekyll
+          git commit -m "Add .nojekyll file"
+          git push origin gh-pages --force
+
       - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}.git
           npm run deploy
