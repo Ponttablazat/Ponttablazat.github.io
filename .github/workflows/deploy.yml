@@ -36,7 +36,7 @@ jobs:
         run: npm run build
 
       - name: Add .nojekyll file to the build output
-        run: touch .nojekyll
+        run: touch out/.nojekyll
 
       - name: Configure Git
         run: |
