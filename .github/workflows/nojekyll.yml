@@ -1,7 +1,13 @@
+# .github/workflows/nojekyll.yml
 name: Add .nojekyll and Deploy GitHub Pages
 
 on:
   workflow_call:
+    inputs:
+      github_token:
+        description: 'GitHub token'
+        required: true
+        type: string
 
 jobs:
   deploy:
@@ -20,11 +26,19 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .nojekyll
           git commit -m 'Add .nojekyll file'
+          
+          # Check if gh-pages branch exists
+          if git show-ref --verify --quiet refs/heads/gh-pages; then
+            echo "gh-pages branch exists"
+          else
+            echo "gh-pages branch does not exist"
+          fi
+
           git push origin gh-pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ inputs.github_token }}
           publish_branch: gh-pages
-          publish_dir: ./
+          publish_dir: ./ 
