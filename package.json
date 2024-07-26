@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d out"
+		"deploy": "gh-pages -d out --repo https://x-access-token:${GITHUB_TOKEN}@github.com/ponttablazat/${{ github.repository }}.git"
 	},
 	"dependencies": {
 		"@radix-ui/react-checkbox": "^1.1.1",
