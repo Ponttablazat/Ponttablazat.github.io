@@ -33,13 +33,10 @@ jobs:
           echo "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}" >> .env.local
 
       - name: Build project
-        run: npm run build
-      
-      - name: .nojekyll
         run: |
-          echo "" >> /out/.nojekyll
+          npm run build
           ls
-          ls out
+      
 
       - name: Configure Git
         run: |
