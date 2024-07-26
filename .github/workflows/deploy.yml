@@ -38,7 +38,7 @@ jobs:
       - name: Add .nojekyll file to the build output
         run: |
           touch touch ./out/.nojekyll
-          ls
+          ls out
 
       - name: Configure Git
         run: |
