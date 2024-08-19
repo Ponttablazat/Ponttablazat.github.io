@@ -4,7 +4,7 @@ import { useState, useEffect, FormEvent } from "react";
 import {
 	signInWithEmailAndPassword,
 	setPersistence,
-	browserSessionPersistence,
+	inMemoryPersistence,
 	browserLocalPersistence,
 	onAuthStateChanged,
 } from "firebase/auth";
@@ -13,7 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { auth } from "@/app/firebase/config";
+import { auth } from "@/app/lib/firebase";
 import { ModeToggle } from "@/components/mode-toggle";
 import { useRouter } from "next/navigation";
 
@@ -39,7 +39,7 @@ export default function Home() {
 		try {
 			await setPersistence(
 				auth,
-				stayLoggedIn ? browserLocalPersistence : browserSessionPersistence
+				stayLoggedIn ? browserLocalPersistence : inMemoryPersistence
 			);
 			await signInWithEmailAndPassword(auth, email, password);
 			router.push("/kezelo");
@@ -73,9 +73,9 @@ export default function Home() {
 			<div className="absolute top-5 right-5">
 				<ModeToggle />
 			</div>
-			<div className="flex items-center text-[2rem] mb-10">
-				<p className="mr-1">Matek Pontáblázat</p>
-				<p className="bg-foreground text-background ml-1 px-2.5 rounded-md dark:bg-foreground">
+			<div className="items-center text-[2rem] mb-10">
+				<p className="mr-1 inline-block">Matek Ponttáblázat</p>
+				<p className="bg-foreground text-background ml-1 inline-block px-2.5 rounded-md dark:bg-foreground">
 					Web
 				</p>
 			</div>
@@ -117,7 +117,7 @@ export default function Home() {
 								<div className="grid gap-1.5 leading-none">
 									<label
 										htmlFor="password_cb"
-										className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+										className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 hover:cursor-pointer select-none"
 									>
 										Jelszó mutatása
 									</label>
@@ -132,7 +132,7 @@ export default function Home() {
 								<div className="grid gap-1.5 leading-none">
 									<label
 										htmlFor="login_cb"
-										className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+										className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 hover:cursor-pointer select-none"
 									>
 										Bejelentkezve maradok
 									</label>
